@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7efe2">
+  <title>Счётчик Тимофея</title>
+  <style>
+    :root{--cream:#f7efe2;--paper:#fffdf8ee;--brown:#3b2721;--muted:#806b61;--coral:#e9775f;--teal:#5e9b92;--gold:#d3954e;--line:#e9cdb0}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 10%,#fff9,transparent 25rem),radial-gradient(circle at 90% 50%,#dba66e26,transparent 25rem),var(--cream);color:var(--brown);font-family:"Trebuchet MS",Arial,sans-serif}
+    button{font:inherit}.shell{min-height:100vh;padding:46px 24px 70px}.tracker{max-width:1120px;margin:auto}.hero{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .eyebrow{margin:0 0 7px;color:#a36d42;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h1{margin:0 0 12px;font-size:clamp(42px,6vw,72px);line-height:.95;letter-spacing:-.055em}.date{margin:0;color:var(--muted);font-size:20px}
+    .avatar{display:grid;place-items:center;width:76px;height:76px;border:7px solid #ffffffc0;border-radius:50%;background:var(--brown);box-shadow:0 9px 24px #3b272129;color:#fff;font-size:31px;font-weight:900}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{min-height:195px;padding:28px;display:grid;grid-template-columns:92px 1fr 108px;gap:20px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:25px;box-shadow:0 13px 25px #64422d17;overflow:hidden;position:relative}
+    .card:after{content:"";position:absolute;right:-48px;top:-70px;width:160px;height:160px;border-radius:50%;background:currentColor;opacity:.055}.coffee{color:#9e6242}.smokes{color:var(--coral)}.toilet{color:var(--teal)}.energy{color:var(--gold)}
+    .icon{width:92px;height:92px;display:grid;place-items:center;border:2px solid currentColor;border-radius:50%;background:#fff8ea;font-size:48px}.copy p{margin:0 0 3px;color:var(--brown);font-size:20px;font-weight:800}.copy strong{display:block;color:var(--brown);font-size:68px;line-height:.95;letter-spacing:-.06em}.copy span{color:var(--muted);font-size:13px;font-weight:700}
+    .add{position:relative;z-index:1;width:94px;height:94px;border:6px solid #ffffffb8;border-radius:50%;background:currentColor;box-shadow:0 7px 18px #3b27212b;cursor:pointer;transition:.14s}.add b,.add small{display:block;color:#fff}.add b{font-size:32px}.add small{font-size:9px;letter-spacing:.08em;text-transform:uppercase}.add:hover{transform:translateY(-2px);box-shadow:0 10px 24px #3b272140}.add:active{transform:scale(.94)}
+    .fact{display:flex;align-items:center;gap:18px;min-height:112px;margin-top:20px;padding:22px 26px;background:linear-gradient(100deg,#ecf6f2,#fffaf0);border:1px solid #87b6ae;border-radius:22px}.fact-icon{font-size:34px}.fact-copy{flex:1}.fact p{margin:0 0 5px;color:var(--teal);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.fact strong{font-size:18px;line-height:1.45}.undo{padding:10px 15px;background:transparent;border:1px solid #9dbeb8;border-radius:99px;color:#447e75;font-weight:800;cursor:pointer}
+    .panel{margin-top:20px;padding:26px;background:var(--paper);border:1px solid var(--line);border-radius:25px;box-shadow:0 12px 24px #64422d12}.title{display:flex;align-items:end;justify-content:space-between;margin-bottom:22px}.title h2{margin:0;font-size:25px}.title>span{color:var(--muted);font-size:12px;font-weight:700}
+    .summary{display:grid;grid-template-columns:repeat(4,1fr)}.sum{display:flex;align-items:center;gap:12px;padding:5px 18px;border-right:1px dashed #dec3aa}.sum:first-child{padding-left:0}.sum:last-child{border:0}.mini{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#f4e4d2;font-size:24px}.sum p{margin:0;color:var(--muted);font-size:11px;font-weight:800}.sum strong{font-size:27px}
+    .history{display:grid;gap:8px}.row{display:grid;grid-template-columns:minmax(110px,1fr) repeat(4,74px);align-items:center;padding:12px 16px;background:#fbf4e9;border-radius:13px;font-size:14px}.row span{color:var(--muted);font-weight:700}
+    @media(max-width:760px){.shell{padding:28px 14px 50px}.avatar{width:58px;height:58px}.grid{grid-template-columns:1fr;gap:12px}.card{min-height:142px;padding:20px;grid-template-columns:72px 1fr 80px}.icon{width:72px;height:72px;font-size:37px}.add{width:76px;height:76px;border-width:4px}.copy strong{font-size:56px}.fact{align-items:flex-start;flex-wrap:wrap}.summary{grid-template-columns:1fr 1fr;gap:14px}.sum{padding:8px 10px}.sum:nth-child(2){border:0}.title{align-items:flex-start;flex-direction:column;gap:5px}.row{grid-template-columns:1.4fr repeat(4,1fr);gap:5px;padding:11px 10px}.row span{font-size:12px}}
+    @media(max-width:390px){h1{font-size:42px}.card{grid-template-columns:62px 1fr 68px;gap:12px;padding:17px}.icon{width:62px;height:62px;font-size:31px}.add{width:66px;height:66px}.row{font-size:11px}}
+  </style>
+</head>
+<body>
+<main class="shell"><section class="tracker">
+  <header class="hero"><div><p class="eyebrow">Наблюдение ведётся официально</p><h1>Счётчик Тимофея</h1><p class="date" id="date"></p></div><div class="avatar">Т</div></header>
+  <div class="grid" id="actions"></div>
+  <aside class="fact"><span class="fact-icon">💡</span><div class="fact-copy"><p>Факт после последнего действия</p><strong id="fact">Нажми на действие — здесь появится полезный факт.</strong></div><button class="undo" id="undo" hidden>Отменить</button></aside>
+  <section class="panel"><div class="title"><div><p class="eyebrow">Сводка</p><h2>Итоги за сегодня</h2></div><span id="total">0 действий</span></div><div class="summary" id="summary"></div></section>
+  <section class="panel"><div class="title"><div><p class="eyebrow">История</p><h2>Последние 7 дней</h2></div><span>данные хранятся на этом устройстве</span></div><div class="history" id="history"></div></section>
+</section></main>
+<script>
+const KEY='timofey-tracker-v1',empty=()=>({coffee:0,smokes:0,toilet:0,energy:0});
+const items=[['coffee','Кофе','☕'],['smokes','Сигарета','🚬'],['toilet','Туалет','🚽'],['energy','Энергетик','⚡']];
+let days={};try{days=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}let last=null;
+const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Bishkek',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const counts=()=>days[today()]||empty();
+function word(k,n){const f={coffee:['кружка','кружки','кружек'],smokes:['сигарета','сигареты','сигарет'],energy:['банка','банки','банок'],toilet:['раз','раза','раз']}[k],a=n%100,b=n%10;return a>=11&&a<=14?f[2]:b===1?f[0]:b>=2&&b<=4?f[1]:f[2]}
+function getFact(k,n){
+  if(k==='coffee')return n===1?'Одна кружка — обычно нормально. Главное, чтобы это не был стакан размером с ведро.':n===2?'Две кружки — всё ещё спокойно. Тимофей держит кофейный баланс.':n===3?'Третья кружка — пора быть аккуратнее: кофеин уже может влиять на пульс и сон.':n===4?'Четыре кружки — лучше остановиться и выпить воды. Кофеина уже много.':`${n} кружек — кофейная тревога. Возможны дрожь, тревожность и плохой сон.`;
+  if(k==='smokes')return n===1?'Безопасного количества сигарет нет — даже одна вредит сосудам и лёгким.':n<=5?`${n} сигарет — каждая добавляет нагрузку на сердце и сосуды.`:n<=10?`${n} сигарет — уже серьёзная дневная нагрузка. Хороший момент сделать длинную паузу.`:`${n} сигарет — красная зона. Организм точно не скажет спасибо.`;
+  if(k==='energy')return n===1?'Один энергетик — уже заметная доза кофеина и часто сахара. Не смешивать с кофе и алкоголем.':n===2?'Два энергетика — высокая нагрузка на сердце. Лучше больше сегодня не пить.':`${n} энергетика — опасно много. При сердцебиении, боли в груди или сильной слабости нужна медпомощь.`;
+  return n<=3?`${n}-й поход — сам по себе не проблема. Частота зависит от воды, кофе и питания.`:n<=7?`${n} походов — может быть обычным днём, особенно после кофе. Важно следить за резкими изменениями.`:`${n} походов — заметно часто. Если есть боль, жжение или это продолжается, лучше обратиться к врачу.`
+}
+function change(k,d){const c=counts(),next=Math.max(0,c[k]+d);days[today()]={...c,[k]:next};localStorage.setItem(KEY,JSON.stringify(days));last=d>0?k:null;document.getElementById('fact').textContent=d>0?getFact(k,next):'Последнее действие отменено.';render()}
+function render(){
+  const c=counts();document.getElementById('date').textContent='Сегодня, '+new Intl.DateTimeFormat('ru-RU',{timeZone:'Asia/Bishkek',day:'numeric',month:'long'}).format(new Date());
+  document.getElementById('actions').innerHTML=items.map(([k,l,i])=>`<article class="card ${k}"><div class="icon">${i}</div><div class="copy"><p>${l}</p><strong>${c[k]}</strong><span>${word(k,c[k])} сегодня</span></div><button class="add" aria-label="Добавить: ${l}" onclick="change('${k}',1)"><b>+1</b><small>нажать</small></button></article>`).join('');
+  document.getElementById('summary').innerHTML=items.map(([k,l,i])=>`<div class="sum"><span class="mini">${i}</span><div><p>${l}</p><strong>${c[k]}</strong></div></div>`).join('');
+  document.getElementById('total').textContent=Object.values(c).reduce((a,b)=>a+b,0)+' действий';
+  const u=document.getElementById('undo');u.hidden=!last;u.onclick=()=>last&&change(last,-1);
+  document.getElementById('history').innerHTML=Array.from({length:7},(_,i)=>{const d=new Date();d.setDate(d.getDate()-i);const key=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Bishkek',year:'numeric',month:'2-digit',day:'2-digit'}).format(d),x=days[key]||empty(),label=i===0?'Сегодня':new Intl.DateTimeFormat('ru-RU',{weekday:'short',day:'numeric'}).format(d);return `<div class="row"><strong>${label}</strong><span>☕ ${x.coffee}</span><span>🚬 ${x.smokes}</span><span>🚽 ${x.toilet}</span><span>⚡ ${x.energy}</span></div>`}).join('')
+}
+render();
+</script>
+</body>
+</html>
